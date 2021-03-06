@@ -89,7 +89,12 @@
       ]
     },
     "filename": "src/app.controller.ts",
-    "groupTitle": "Authentication_API"
+    "groupTitle": "Authentication_API",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/auth/login"
+      }
+    ]
   },
   {
     "type": "post",
@@ -188,7 +193,12 @@
       ]
     },
     "filename": "src/app.controller.ts",
-    "groupTitle": "Authentication_API"
+    "groupTitle": "Authentication_API",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/auth/signup"
+      }
+    ]
   },
   {
     "type": "post",
@@ -241,7 +251,12 @@
       ]
     },
     "filename": "src/crypto/crypto.controller.ts",
-    "groupTitle": "Cryptocurrency"
+    "groupTitle": "Cryptocurrency",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/crypto/infcoin"
+      }
+    ]
   },
   {
     "type": "post",
@@ -294,7 +309,12 @@
       ]
     },
     "filename": "src/crypto/crypto.controller.ts",
-    "groupTitle": "Cryptocurrency"
+    "groupTitle": "Cryptocurrency",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/crypto/suppcoin"
+      }
+    ]
   },
   {
     "type": "post",
@@ -347,7 +367,12 @@
       ]
     },
     "filename": "src/github/github.controller.ts",
-    "groupTitle": "Github"
+    "groupTitle": "Github",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/github/setuphook"
+      }
+    ]
   },
   {
     "type": "post",
@@ -425,7 +450,12 @@
       ]
     },
     "filename": "src/myanimelist/myanimelist.controller.ts",
-    "groupTitle": "MyAnimeList"
+    "groupTitle": "MyAnimeList",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/myanimelist/broadcast"
+      }
+    ]
   },
   {
     "type": "post",
@@ -517,7 +547,12 @@
       ]
     },
     "filename": "src/myanimelist/myanimelist.controller.ts",
-    "groupTitle": "MyAnimeList"
+    "groupTitle": "MyAnimeList",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/myanimelist/anime"
+      }
+    ]
   },
   {
     "type": "post",
@@ -602,7 +637,12 @@
       ]
     },
     "filename": "src/myanimelist/myanimelist.controller.ts",
-    "groupTitle": "MyAnimeList"
+    "groupTitle": "MyAnimeList",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/myanimelist/manga"
+      }
+    ]
   },
   {
     "type": "get",
@@ -632,7 +672,12 @@
       ]
     },
     "filename": "src/auth/auth.controller.ts",
-    "groupTitle": "OAuth_Services"
+    "groupTitle": "OAuth_Services",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/oauth/github"
+      }
+    ]
   },
   {
     "type": "get",
@@ -662,7 +707,12 @@
       ]
     },
     "filename": "src/auth/auth.controller.ts",
-    "groupTitle": "OAuth_Services"
+    "groupTitle": "OAuth_Services",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/oauth/twitch"
+      }
+    ]
   },
   {
     "type": "Post",
@@ -747,7 +797,12 @@
       ]
     },
     "filename": "src/twitch/twitch.controller.ts",
-    "groupTitle": "Twitch"
+    "groupTitle": "Twitch",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/twicth/follow"
+      }
+    ]
   },
   {
     "type": "Get",
@@ -832,7 +887,12 @@
       ]
     },
     "filename": "src/twitch/twitch.controller.ts",
-    "groupTitle": "Twitch"
+    "groupTitle": "Twitch",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/twicth/follows"
+      }
+    ]
   },
   {
     "type": "Post",
@@ -876,7 +936,12 @@
       }
     },
     "filename": "src/twitch/twitch.controller.ts",
-    "groupTitle": "Twitch"
+    "groupTitle": "Twitch",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/twicth/unfollow"
+      }
+    ]
   },
   {
     "type": "Get",
@@ -961,7 +1026,12 @@
       ]
     },
     "filename": "src/users/users.controller.ts",
-    "groupTitle": "Users"
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/users/:id"
+      }
+    ]
   },
   {
     "type": "Get",
@@ -1033,7 +1103,12 @@
       ]
     },
     "filename": "src/users/users.controller.ts",
-    "groupTitle": "Users"
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/users"
+      }
+    ]
   },
   {
     "type": "Get",
@@ -1056,7 +1131,12 @@
       }
     },
     "filename": "src/users/users.controller.ts",
-    "groupTitle": "Users"
+    "groupTitle": "Users",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/users/remove/:id"
+      }
+    ]
   },
   {
     "type": "Post",
@@ -1155,7 +1235,12 @@
       ]
     },
     "filename": "src/weather/weather.controller.ts",
-    "groupTitle": "Weather"
+    "groupTitle": "Weather",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/weather/infnow"
+      }
+    ]
   },
   {
     "type": "Post",
@@ -1254,7 +1339,12 @@
       ]
     },
     "filename": "src/weather/weather.controller.ts",
-    "groupTitle": "Weather"
+    "groupTitle": "Weather",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/weather/infforecast"
+      }
+    ]
   },
   {
     "type": "Post",
@@ -1353,7 +1443,12 @@
       ]
     },
     "filename": "src/weather/weather.controller.ts",
-    "groupTitle": "Weather"
+    "groupTitle": "Weather",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/weather/suppnow"
+      }
+    ]
   },
   {
     "type": "Post",
@@ -1452,6 +1547,11 @@
       ]
     },
     "filename": "src/weather/weather.controller.ts",
-    "groupTitle": "Weather"
+    "groupTitle": "Weather",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:8080/weather/suppforecast"
+      }
+    ]
   }
 ]
