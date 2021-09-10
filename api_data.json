@@ -403,29 +403,36 @@
   },
   {
     "type": "Delete",
-    "url": "user/:id",
+    "url": "user",
     "title": "Remove a User by Id.",
     "version": "0.1.0",
     "name": "Remove_a_User_by_Id",
     "group": "User",
-    "parameter": {
+    "header": {
       "fields": {
-        "Parameter": [
+        "Header": [
           {
-            "group": "Parameter",
+            "group": "Header",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the user.</p>"
+            "field": "Authorization",
+            "description": "<p>Users unique access-token.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInRWV...\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "filename": "src/user/user.controller.ts",
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "http://localhost:3000/user/:id"
+        "url": "http://localhost:3000/user"
       }
     ]
   },
@@ -436,6 +443,26 @@
     "version": "0.1.0",
     "name": "Update_User",
     "group": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Users unique access-token.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInRWV...\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "parameter": {
       "fields": {
         "Parameter": [
