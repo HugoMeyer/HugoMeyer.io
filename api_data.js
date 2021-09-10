@@ -5,7 +5,7 @@ define({ "api": [
     "title": "Login user to API.",
     "version": "0.1.0",
     "name": "Login_User",
-    "group": "Auth",
+    "group": "Authentication",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -47,7 +47,7 @@ define({ "api": [
       ]
     },
     "filename": "src/app.controller.ts",
-    "groupTitle": "Auth",
+    "groupTitle": "Authentication",
     "sampleRequest": [
       {
         "url": "http://localhost:3000/auth/login"
@@ -56,11 +56,11 @@ define({ "api": [
   },
   {
     "type": "post",
-    "url": "user",
+    "url": "auth/signup",
     "title": "Create user to API.",
     "version": "0.1.0",
-    "name": "Create_User",
-    "group": "User",
+    "name": "Sign_up_User",
+    "group": "Authentication",
     "parameter": {
       "fields": {
         "Parameter": [
@@ -157,11 +157,11 @@ define({ "api": [
         }
       ]
     },
-    "filename": "src/user/user.controller.ts",
-    "groupTitle": "User",
+    "filename": "src/app.controller.ts",
+    "groupTitle": "Authentication",
     "sampleRequest": [
       {
-        "url": "http://localhost:3000/user"
+        "url": "http://localhost:3000/auth/signup"
       }
     ]
   },
