@@ -166,6 +166,324 @@ define({ "api": [
     ]
   },
   {
+    "type": "get",
+    "url": "contacts",
+    "title": "Get all urgency contacts.",
+    "version": "0.1.0",
+    "name": "Get_all_urgency_contacts",
+    "group": "Urgency_Contacts",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "urgencyId",
+            "description": "<p>Id of the owner of comtact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Username of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n},\n {\n  \"id\": \"78d789s98778fh0q99ui092\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"toto tutu\",\n  \"phonenumber\": \"+33612345678\"\n},\n  ...]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/contacts/contacts.controller.ts",
+    "groupTitle": "Urgency_Contacts",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/contacts"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "contacts/:id",
+    "title": "Get an urgency contacts.",
+    "version": "0.1.0",
+    "name": "Get_an_urgency_contacts",
+    "group": "Urgency_Contacts",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "urgencyId",
+            "description": "<p>Id of the owner of comtact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Username of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/contacts/contacts.controller.ts",
+    "groupTitle": "Urgency_Contacts",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/contacts/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "contacts/urgency/:urgencyId",
+    "title": "Get the owner of an urgency contacts.",
+    "version": "0.1.0",
+    "name": "Get_the_owner_of_an_urgency_contacts",
+    "group": "Urgency_Contacts",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "urgencyId",
+            "description": "<p>Id of the owner of comtact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Username of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/contacts/contacts.controller.ts",
+    "groupTitle": "Urgency_Contacts",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/contacts/urgency/:urgencyId"
+      }
+    ]
+  },
+  {
+    "type": "remove",
+    "url": "contacts/:id",
+    "title": "Remove an urgency contacts.",
+    "version": "0.1.0",
+    "name": "Remove_an_urgency_contacts",
+    "group": "Urgency_Contacts",
+    "filename": "src/contacts/contacts.controller.ts",
+    "groupTitle": "Urgency_Contacts",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/contacts/:id"
+      }
+    ]
+  },
+  {
+    "type": "patch",
+    "url": "contacts/:id",
+    "title": "Update an urgency contacts.",
+    "version": "0.1.0",
+    "name": "Update_an_urgency_contacts",
+    "group": "Urgency_Contacts",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "urgencyId",
+            "description": "<p>Id of the owner of comtact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Username of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/contacts/contacts.controller.ts",
+    "groupTitle": "Urgency_Contacts",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/contacts/:id"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "contacts",
+    "title": "Create urgency contacts.",
+    "version": "0.1.0",
+    "name": "create_urgency_contacts",
+    "group": "Urgency_Contacts",
+    "body": [
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "urgencyId",
+        "description": "<p>Id of the owner of contact.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "username",
+        "description": "<p>Username of the urgency contact.</p>"
+      },
+      {
+        "group": "Body",
+        "type": "String",
+        "optional": false,
+        "field": "phonenumber",
+        "description": "<p>Phonenumber of the urgency contact.</p>"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "urgencyId",
+            "description": "<p>Id of the owner of comtact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "username",
+            "description": "<p>Username of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/contacts/contacts.controller.ts",
+    "groupTitle": "Urgency_Contacts",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/contacts"
+      }
+    ]
+  },
+  {
     "type": "Get",
     "url": "user/:email",
     "title": "Get a User by an email.",
