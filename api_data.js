@@ -46,7 +46,7 @@ define({ "api": [
         }
       ]
     },
-    "filename": "src/app.controller.ts",
+    "filename": "src/auth/auth.controller.ts",
     "groupTitle": "Authentication",
     "sampleRequest": [
       {
@@ -96,6 +96,20 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
+            "field": "gender",
+            "description": "<p>gender of the user.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the user.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
             "field": "phonenumber",
             "description": "<p>phonenumber of the user.</p>"
           }
@@ -109,8 +123,8 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the User.</p>"
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -123,8 +137,22 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "Lastname",
-            "description": "<p>Lastname of the User.</p>"
+            "field": "lastname",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -137,6 +165,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "phonenumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "password",
             "description": "<p>password of the user.</p>"
           },
@@ -144,20 +179,34 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "phonenumber",
-            "description": "<p>phonenumber of the user.</p>"
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"19234785\",\n  \"firstname\": \"Hugo\",\n  \"lastname\": \"Meyer\",\n  \"email\": \"exemple@epitech.eu\",\n  \"password\": \"password\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": "HTTP/1.1 200 OK\n{\n     \"status\": \"pending\",\n     \"firstname\": \"Hugo\",\n     \"lastname\": \"Meyer\",\n     \"gender\": \"male\",\n     \"roles\": [\n         \"user\"\n     ],\n     \"email\": \"hugo.meyer@epitech.eu\",\n     \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n     \"phoneNumber\": \"+33123123123\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n     \"bio\": \"about me...\",\n     \"_id\": \"616044f52d3a0b1a91b37442\",\n     \"created\": \"2021-10-08T13:17:41.618Z\",\n     \"__v\": 0\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "src/app.controller.ts",
+    "filename": "src/auth/auth.controller.ts",
     "groupTitle": "Authentication",
     "sampleRequest": [
       {
@@ -510,8 +559,8 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the User.</p>"
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -524,8 +573,22 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "Lastname",
-            "description": "<p>Lastname of the User.</p>"
+            "field": "lastname",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -538,6 +601,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "phonenumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "password",
             "description": "<p>password of the user.</p>"
           },
@@ -545,15 +615,29 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "phonenumber",
-            "description": "<p>phonenumber of the user.</p>"
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"19234785\",\n  \"firstname\": \"Hugo\",\n  \"lastname\": \"Meyer\",\n  \"email\": \"exemple@epitech.eu\",\n  \"password\": \"password\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": "HTTP/1.1 200 OK\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n }",
           "type": "json"
         }
       ]
@@ -580,8 +664,8 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the User.</p>"
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -601,6 +685,20 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "gender",
+            "description": "<p>gender of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "email",
             "description": "<p>email of the user.</p>"
           },
@@ -608,15 +706,43 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "phonenumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "password",
-            "description": "<p>hash password of the user.</p>"
+            "description": "<p>password of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"19234785\",\n  \"firstname\": \"Toto\",\n  \"lastname\": \"Tutu\",\n  \"email\": \"exemple@epitech.eu\",\n  \"password\": \"ijsahdf92384h23@#$234kjiwdsg2734yasd23\",\n  \"phonenumber\": \"+33612345678\"\n},\n{\n  \"id\": \"19234785\",\n  \"firstname\": \"Hugo\",\n  \"lastname\": \"Meyer\",\n  \"email\": \"exemple@epitech.eu\",\n  \"password\": \"u3sda4hfasdufhoaisdf234@#$234kjiwdsg2734yasd23\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": "HTTP/1.1 200 OK\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n },\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n }",
           "type": "json"
         }
       ]
@@ -663,8 +789,8 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the User.</p>"
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -677,8 +803,22 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "Lastname",
-            "description": "<p>Lastname of the User.</p>"
+            "field": "lastname",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -691,6 +831,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "phonenumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "password",
             "description": "<p>password of the user.</p>"
           },
@@ -698,15 +845,29 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "phonenumber",
-            "description": "<p>phonenumber of the user.</p>"
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"_id\": \"19234785\",\n  \"firstname\": \"Hugo\",\n  \"lastname\": \"Meyer\",\n  \"email\": \"exemple@epitech.eu\",\n  \"password\": \"password\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": "HTTP/1.1 200 OK\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n }",
           "type": "json"
         }
       ]
@@ -788,15 +949,8 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "toedit",
-            "description": "<p>value to edit.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "newvalue",
-            "description": "<p>new value of the edit.</p>"
+            "field": "KeyName",
+            "description": "<p>Key name and value to edit.</p>"
           }
         ]
       }
@@ -808,8 +962,8 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the User.</p>"
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -822,8 +976,22 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "Lastname",
-            "description": "<p>Lastname of the User.</p>"
+            "field": "lastname",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -836,6 +1004,13 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
+            "field": "phonenumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
             "field": "password",
             "description": "<p>password of the user.</p>"
           },
@@ -843,15 +1018,29 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "phonenumber",
-            "description": "<p>phonenumber of the user.</p>"
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"19234785\",\n  \"firstname\": \"Hugo\",\n  \"lastname\": \"Meyer\",\n  \"email\": \"exemple@epitech.eu\",\n  \"password\": \"password\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": "HTTP/1.1 200 OK\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n }",
           "type": "json"
         }
       ]
