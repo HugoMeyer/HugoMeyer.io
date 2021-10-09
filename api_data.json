@@ -757,7 +757,7 @@
   },
   {
     "type": "Get",
-    "url": "user/profile",
+    "url": "auth/profile",
     "title": "Get profile of the current user.",
     "version": "0.1.0",
     "name": "Get_current_User_Profile",
@@ -876,13 +876,13 @@
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "http://localhost:3000/user/profile"
+        "url": "http://localhost:3000/auth/profile"
       }
     ]
   },
   {
     "type": "Delete",
-    "url": "user",
+    "url": "auth/user",
     "title": "Remove a User by Id.",
     "version": "0.1.0",
     "name": "Remove_a_User_by_Id",
@@ -911,13 +911,13 @@
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "http://localhost:3000/user"
+        "url": "http://localhost:3000/auth/user"
       }
     ]
   },
   {
     "type": "patch",
-    "url": "user",
+    "url": "auth/user",
     "title": "Update user to API.",
     "version": "0.1.0",
     "name": "Update_User",
@@ -1049,7 +1049,7 @@
     "groupTitle": "User",
     "sampleRequest": [
       {
-        "url": "http://localhost:3000/user"
+        "url": "http://localhost:3000/auth/user"
       }
     ]
   }
