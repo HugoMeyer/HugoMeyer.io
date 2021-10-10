@@ -404,6 +404,19 @@ define({ "api": [
     "version": "0.1.0",
     "name": "Update_an_urgency_contacts",
     "group": "Urgency_Contacts",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "KeyName",
+            "description": "<p>Key name and value to edit.</p>"
+          }
+        ]
+      }
+    },
     "success": {
       "fields": {
         "Success 200": [
