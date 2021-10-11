@@ -215,6 +215,862 @@
     ]
   },
   {
+    "type": "delete",
+    "url": "shop/products/:id",
+    "title": "Delete product.",
+    "version": "0.1.0",
+    "name": "Delete_product",
+    "group": "Shop",
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products/:id"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "shop/products",
+    "title": "Get all products.",
+    "version": "0.1.0",
+    "name": "Get_all_products",
+    "group": "Shop",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [{\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n },\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }, ...]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "shop/products/category",
+    "title": "Get all products category.",
+    "version": "0.1.0",
+    "name": "Get_all_products_category",
+    "group": "Shop",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n[\n    \"bracelet\",\n    \"module\",\n    \"subscription\",\n    \"unknown\"\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products/category"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "shop/products/category/:color",
+    "title": "Get products by color.",
+    "version": "0.1.0",
+    "name": "Get_products_by_color",
+    "group": "Shop",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products/category/:color"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "shop/products/category/:unisexe",
+    "title": "Get products by genre.",
+    "version": "0.1.0",
+    "name": "Get_products_by_genre",
+    "group": "Shop",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [{\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n },\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }, ...]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products/category/:unisexe"
+      }
+    ]
+  },
+  {
+    "type": "get",
+    "url": "shop/products/category/:type",
+    "title": "Get products by type.",
+    "version": "0.1.0",
+    "name": "Get_products_by_type",
+    "group": "Shop",
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [{\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n },\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }, ...]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products/category/:type"
+      }
+    ]
+  },
+  {
+    "type": "patch",
+    "url": "shop/products/:id",
+    "title": "Update product.",
+    "version": "0.1.0",
+    "name": "Update_product",
+    "group": "Shop",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "KeyName",
+            "description": "<p>KeyName and the value to change.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"status\": \"inactive\",\n    \"type\": \"module\",\n    \"title\": \"Bracelet Hynos\",\n    \"description\": \"Bracelet avec Module hynos anti-agression.\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products/:id"
+      }
+    ]
+  },
+  {
+    "type": "post",
+    "url": "shop/products",
+    "title": "Create product.",
+    "version": "0.1.0",
+    "name": "create_product",
+    "group": "Shop",
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"status\": \"active\",\n    \"type\": \"module\",\n    \"title\": \"Bracelet Hynos\",\n    \"link\": \"https://hynos.fr/products/1\",\n    \"imageLink\": [\n        \"https://i.imgur.com/R9HnrxV.png\"\n    ],\n    \"availability\": \"available\",\n    \"price\": {\n        \"value\": 49.99,\n        \"currency\": \"EUR\"\n    },\n    \"description\": \"Bracelet avec Module hynos anti-agression.\",\n    \"color\": \"peach\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.controller.ts",
+    "groupTitle": "Shop",
+    "sampleRequest": [
+      {
+        "url": "http://localhost:3000/shop/products"
+      }
+    ]
+  },
+  {
     "type": "get",
     "url": "contacts",
     "title": "Get all urgency contacts.",
@@ -415,7 +1271,14 @@
             "description": "<p>Key name and value to edit.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"username\": \"Titu\",\n    \"phoneNumber\": \"+33622222222\"\n}",
+          "type": "json"
+        }
+      ]
     },
     "success": {
       "fields": {
@@ -473,29 +1336,40 @@
     "version": "0.1.0",
     "name": "create_urgency_contacts",
     "group": "Urgency_Contacts",
-    "body": [
-      {
-        "group": "Body",
-        "type": "String",
-        "optional": false,
-        "field": "ownerId",
-        "description": "<p>Id of the owner of contact.</p>"
+    "parameter": {
+      "fields": {
+        "Parameter": [
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "ownerId",
+            "description": "<p>Id of the owner of contact.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
+          }
+        ]
       },
-      {
-        "group": "Body",
-        "type": "String",
-        "optional": false,
-        "field": "fullname",
-        "description": "<p>fullname of the urgency contact.</p>"
-      },
-      {
-        "group": "Body",
-        "type": "String",
-        "optional": false,
-        "field": "phonenumber",
-        "description": "<p>Phonenumber of the urgency contact.</p>"
-      }
-    ],
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"urgencyId\": \"6138949afc08c72e2c51f2a8\",\n    \"username\": \"Titi\",\n    \"phoneNumber\": \"+33622222222\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "success": {
       "fields": {
         "Success 200": [
