@@ -242,8 +242,8 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "username",
-            "description": "<p>Username of the urgency contact.</p>"
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
           },
           {
             "group": "Success 200",
@@ -298,8 +298,8 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "username",
-            "description": "<p>Username of the urgency contact.</p>"
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
           },
           {
             "group": "Success 200",
@@ -354,8 +354,8 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "username",
-            "description": "<p>Username of the urgency contact.</p>"
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
           },
           {
             "group": "Success 200",
@@ -438,8 +438,8 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "username",
-            "description": "<p>Username of the urgency contact.</p>"
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
           },
           {
             "group": "Success 200",
@@ -485,8 +485,8 @@
         "group": "Body",
         "type": "String",
         "optional": false,
-        "field": "username",
-        "description": "<p>Username of the urgency contact.</p>"
+        "field": "fullname",
+        "description": "<p>fullname of the urgency contact.</p>"
       },
       {
         "group": "Body",
@@ -517,8 +517,8 @@
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "username",
-            "description": "<p>Username of the urgency contact.</p>"
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
           },
           {
             "group": "Success 200",
