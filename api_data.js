@@ -235,7 +235,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "urgencyId",
+            "field": "ownerId",
             "description": "<p>Id of the owner of comtact.</p>"
           },
           {
@@ -257,7 +257,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n[{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n},\n {\n  \"id\": \"78d789s98778fh0q99ui092\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"toto tutu\",\n  \"phonenumber\": \"+33612345678\"\n},\n  ...]",
+          "content": " HTTP/1.1 200 OK\n [{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n},\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Toto\",\n  \"phoneNumber\": \"+33633333333\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Toto\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163db83c5863e36ba00d862\",\n  \"created\": \"2021-10-11T06:36:51.841Z\",\n  \"__v\": 0\n},\n   ...]",
           "type": "json"
         }
       ]
@@ -291,7 +291,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "urgencyId",
+            "field": "ownerId",
             "description": "<p>Id of the owner of comtact.</p>"
           },
           {
@@ -313,7 +313,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
           "type": "json"
         }
       ]
@@ -328,7 +328,7 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "contacts/urgency/:urgencyId",
+    "url": "contacts/urgency/:ownerId",
     "title": "Get the owner of an urgency contacts.",
     "version": "0.1.0",
     "name": "Get_the_owner_of_an_urgency_contacts",
@@ -340,14 +340,14 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the urgency contact.</p>"
+            "field": "_id",
+            "description": "<p>Id of the urgency contact.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "urgencyId",
+            "field": "ownerId",
             "description": "<p>Id of the owner of comtact.</p>"
           },
           {
@@ -369,7 +369,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
           "type": "json"
         }
       ]
@@ -378,7 +378,7 @@ define({ "api": [
     "groupTitle": "Urgency_Contacts",
     "sampleRequest": [
       {
-        "url": "http://localhost:3000/contacts/urgency/:urgencyId"
+        "url": "http://localhost:3000/contacts/urgency/:ownerId"
       }
     ]
   },
@@ -431,7 +431,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "urgencyId",
+            "field": "ownerId",
             "description": "<p>Id of the owner of comtact.</p>"
           },
           {
@@ -453,7 +453,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
           "type": "json"
         }
       ]
@@ -478,7 +478,7 @@ define({ "api": [
         "group": "Body",
         "type": "String",
         "optional": false,
-        "field": "urgencyId",
+        "field": "ownerId",
         "description": "<p>Id of the owner of contact.</p>"
       },
       {
@@ -510,7 +510,7 @@ define({ "api": [
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "urgencyId",
+            "field": "ownerId",
             "description": "<p>Id of the owner of comtact.</p>"
           },
           {
@@ -532,7 +532,7 @@ define({ "api": [
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n{\n  \"id\": \"63sa628sdas87638d6asy\",\n  \"urgencyId\": \"61d6734hd734h0sh239d09\",\n  \"username\": \"Hugo Meyer\",\n  \"phonenumber\": \"+33612345678\"\n}",
+          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
           "type": "json"
         }
       ]
