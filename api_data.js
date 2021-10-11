@@ -13,7 +13,7 @@ define({ "api": [
             "group": "Parameter",
             "type": "String",
             "optional": false,
-            "field": "email",
+            "field": "username",
             "description": "<p>email of the user.</p>"
           },
           {
