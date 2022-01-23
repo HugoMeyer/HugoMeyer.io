@@ -396,10 +396,29 @@ define({ "api": [
   },
   {
     "type": "get",
-    "url": "shop/products",
-    "title": "Get all products.",
+    "url": "shop/products/category",
+    "title": "Get all products category.",
     "version": "1.0.0",
-    "name": "Get_all_products",
+    "name": "Get_all_products_category",
+    "group": "Shop",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "   HTTP/1.1 200 OK\n[\n    \"bracelet\",\n    \"module\",\n    \"subscription\",\n    \"unknown\"\n]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/documentation.ts",
+    "groupTitle": "Shop"
+  },
+  {
+    "type": "get",
+    "url": "shop/purchase",
+    "title": "Get all purchases.",
+    "version": "1.0.0",
+    "name": "Get_all_purchases",
     "group": "Shop",
     "success": {
       "fields": {
@@ -592,25 +611,6 @@ define({ "api": [
         {
           "title": "Success-Response:",
           "content": "    HTTP/1.1 201 CREATED\n[{\n   \"status\": \"pending\",\n   \"customer\": {\n       \"_id\": \"61dee544cd596a26c13b2412\",\n       \"status\": \"pending\",\n       \"firstname\": \"Hugo\",\n       \"lastname\": \"Meyer\",\n       \"premium\": true,\n       \"gender\": \"male\",\n       \"roles\": [\n           \"admin\"\n       ],\n       \"email\": \"hugo.meyer@epitech.eu\",\n       \"password\": \"$2b$10$u4FktmI26UzLLophk6ZuG.lb4LnTStJOXmjhC/2wEzv8F7acmCOau\",\n       \"phoneNumber\": \"+33663657983\",\n       \"avatar\": \"https://eu.ui-avatars.com/api/?name=Hugo%20Meyer\",\n       \"bio\": \"about me...\",\n       \"created\": \"2022-01-12T14:27:16.526Z\",\n       \"__v\": 0\n   },\n   \"products\": [\n       {\n           \"price\": {\n               \"value\": 49.99,\n               \"currency\": \"EUR\"\n           },\n           \"_id\": \"6164048b837cb47127361aeb\",\n           \"status\": \"active\",\n           \"type\": \"module\",\n           \"title\": \"Bracelet Hynos\",\n           \"link\": \"\",\n           \"imageLink\": [\n               \"https://i.imgur.com/LaMXbW6.png\"\n           ],\n           \"availability\": \"available\",\n           \"gender\": \"unisexe\",\n           \"description\": \"Bracelet avec module hynos anti-agression.\",\n           \"color\": \"black/silver\",\n           \"created\": \"2021-10-11T09:31:55.010Z\",\n           \"__v\": 0\n       }\n   ],\n   \"price\": {\n       \"value\": 49.99,\n       \"currency\": \"EUR\"\n   },\n   \"address\": \"21 rue de Dieuze\",\n   \"_id\": \"61ed7719298d87aa7bcad70c\",\n   \"created\": \"2022-01-23T15:41:13.423Z\",\n   \"__v\": 0\n }, ...]",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/documentation.ts",
-    "groupTitle": "Shop"
-  },
-  {
-    "type": "get",
-    "url": "shop/products/category",
-    "title": "Get all products category.",
-    "version": "1.0.0",
-    "name": "Get_all_products_category",
-    "group": "Shop",
-    "success": {
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "   HTTP/1.1 200 OK\n[\n    \"bracelet\",\n    \"module\",\n    \"subscription\",\n    \"unknown\"\n]",
           "type": "json"
         }
       ]
