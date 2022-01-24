@@ -416,7 +416,7 @@
   {
     "type": "get",
     "url": "shop/purchase",
-    "title": "Get all purchases.",
+    "title": "Get all purchase.",
     "version": "1.0.0",
     "name": "Get_all_purchases",
     "group": "Shop",
@@ -1570,7 +1570,7 @@
     "groupTitle": "Urgency_Contacts"
   },
   {
-    "type": "remove",
+    "type": "delete",
     "url": "contacts/:id",
     "title": "Remove an urgency contacts.",
     "version": "1.0.0",
