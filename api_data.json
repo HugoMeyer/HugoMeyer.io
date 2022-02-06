@@ -236,6 +236,10 @@
           {
             "group": "Body",
             "type": "String[]",
+            "allowedValues": [
+              "\"user\"",
+              "\"admin\""
+            ],
             "optional": true,
             "field": "roles",
             "defaultValue": "user",
@@ -1440,15 +1444,28 @@
           {
             "group": "Body",
             "type": "String",
+            "allowedValues": [
+              "\"active\"",
+              "\"inactive\"",
+              "\"deleted\""
+            ],
             "optional": true,
             "field": "status",
+            "defaultValue": "active",
             "description": "<p>status of the product.</p>"
           },
           {
             "group": "Body",
             "type": "String",
+            "allowedValues": [
+              "\"unknown\"",
+              "\"bracelet\"",
+              "\"module\"",
+              "\"subscription\""
+            ],
             "optional": true,
             "field": "type",
+            "defaultValue": "unknown",
             "description": "<p>type of the product.</p>"
           },
           {
@@ -1475,8 +1492,14 @@
           {
             "group": "Body",
             "type": "String",
+            "allowedValues": [
+              "\"unknown\"",
+              "\"soldout\"",
+              "\"available\""
+            ],
             "optional": true,
             "field": "availability",
+            "defaultValue": "unknown",
             "description": "<p>availability of the product.</p>"
           },
           {
@@ -1503,8 +1526,14 @@
           {
             "group": "Body",
             "type": "String",
+            "allowedValues": [
+              "\"unisexe\"",
+              "\"male\"",
+              "\"female\""
+            ],
             "optional": true,
             "field": "gender",
+            "defaultValue": "unknown",
             "description": "<p>gender category of the product.</p>"
           },
           {
@@ -1924,23 +1953,37 @@
     "group": "Urgency_Contacts",
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Body": [
           {
-            "group": "Parameter",
+            "group": "Body",
+            "type": "String",
+            "allowedValues": [
+              "\"pending\"",
+              "\"active\"",
+              "\"blocked\"",
+              "\"deleted\""
+            ],
+            "optional": true,
+            "field": "status",
+            "defaultValue": "pending",
+            "description": "<p>status of the urgency contact.</p>"
+          },
+          {
+            "group": "Body",
             "type": "String",
             "optional": false,
             "field": "ownerId",
             "description": "<p>Id of the owner of contact.</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Body",
             "type": "String",
             "optional": false,
             "field": "fullname",
             "description": "<p>fullname of the urgency contact.</p>"
           },
           {
-            "group": "Parameter",
+            "group": "Body",
             "type": "String",
             "optional": false,
             "field": "phonenumber",
@@ -2064,7 +2107,7 @@
   {
     "type": "patch",
     "url": "contacts?_id=value",
-    "title": "2. Update an urgency contacts.",
+    "title": "2. Update Urgency contacts.",
     "version": "1.0.0",
     "name": "Update_an_urgency_contacts",
     "group": "Urgency_Contacts",
