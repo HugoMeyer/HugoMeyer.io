@@ -1,5 +1,104 @@
 [
   {
+    "type": "Patch",
+    "url": "auth/changePassword",
+    "title": "Change Password Path.",
+    "version": "1.0.0",
+    "name": "Change_Password_Path",
+    "group": "Authentication",
+    "parameter": {
+      "fields": {
+        "Body": [
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>new password of the user.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>ok.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n     true\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/documentations/documentation.ts",
+    "groupTitle": "Authentication"
+  },
+  {
+    "type": "Post",
+    "url": "auth/forgotPassword",
+    "title": "Forgot Password Path.",
+    "version": "1.0.0",
+    "name": "Forgot_Password_Path",
+    "group": "Authentication",
+    "parameter": {
+      "fields": {
+        "Body": [
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user.</p>"
+          }
+        ]
+      }
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "message",
+            "description": "<p>ok.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n     'Forgot Password, mail de récupération envoyé'\n }",
+          "type": "json"
+        }
+      ]
+    },
+    "error": {
+      "fields": {
+        "Error 400": [
+          {
+            "group": "Error 400",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      }
+    },
+    "filename": "src/documentations/documentation.ts",
+    "groupTitle": "Authentication"
+  },
+  {
     "type": "post",
     "url": "auth/login",
     "title": "Login User.",
@@ -66,7 +165,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Authentication"
   },
   {
@@ -226,6 +325,13 @@
             "optional": false,
             "field": "create",
             "description": "<p>create of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
           }
         ]
       },
@@ -257,7 +363,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Authentication"
   },
   {
@@ -267,7 +373,7 @@
     "version": "1.0.0",
     "name": "Delete_product",
     "group": "Shop",
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -277,7 +383,7 @@
     "version": "1.0.0",
     "name": "Delete_purchase",
     "group": "Shop",
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -391,7 +497,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -410,7 +516,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -615,7 +721,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -729,7 +835,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -843,7 +949,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -977,7 +1083,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -993,14 +1099,14 @@
           {
             "group": "Parameter",
             "type": "String",
-            "optional": false,
+            "optional": true,
             "field": "status",
             "description": "<p>status of the product.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
-            "optional": false,
+            "optional": true,
             "field": "type",
             "description": "<p>type of the product.</p>"
           },
@@ -1014,7 +1120,7 @@
           {
             "group": "Parameter",
             "type": "String",
-            "optional": false,
+            "optional": true,
             "field": "link",
             "description": "<p>link of the product.</p>"
           },
@@ -1028,35 +1134,42 @@
           {
             "group": "Parameter",
             "type": "String",
-            "optional": false,
+            "optional": true,
             "field": "availability",
             "description": "<p>availability of the product.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "price[value]",
             "description": "<p>price value of the product.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "price[currency]",
             "description": "<p>price currency of the product.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
-            "optional": false,
+            "optional": true,
             "field": "description",
             "description": "<p>description of the product.</p>"
           },
           {
             "group": "Parameter",
             "type": "String",
-            "optional": false,
+            "optional": true,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Parameter",
+            "type": "String",
+            "optional": true,
             "field": "color",
             "description": "<p>color of the product.</p>"
           }
@@ -1125,14 +1238,14 @@
           {
             "group": "Success 200",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "price[value]",
             "description": "<p>price value of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
-            "optional": true,
+            "optional": false,
             "field": "price[currency]",
             "description": "<p>price currency of the product.</p>"
           },
@@ -1174,7 +1287,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -1413,7 +1526,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Shop"
   },
   {
@@ -1464,7 +1577,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
@@ -1515,7 +1628,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
@@ -1566,7 +1679,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
@@ -1576,7 +1689,7 @@
     "version": "1.0.0",
     "name": "Remove_an_urgency_contacts",
     "group": "Urgency_Contacts",
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
@@ -1647,7 +1760,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
@@ -1732,7 +1845,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
@@ -1841,6 +1954,13 @@
             "optional": false,
             "field": "create",
             "description": "<p>create of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
           }
         ]
       },
@@ -1872,7 +1992,7 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "User"
   },
   {
@@ -1968,18 +2088,25 @@
             "optional": false,
             "field": "create",
             "description": "<p>create date of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [{\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"premium\": true,\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n },\n    {\n        \"_id\": \"61e72141d76d9d3812d8634d\",\n        \"status\": \"active\",\n        \"firstname\": \"test\",\n        \"lastname\": \"testName\",\n        \"premium\": false,\n        \"gender\": \"male\",\n        \"roles\": [\n            \"user\"\n        ],\n        \"email\": \"test.test@epitech.eu\",\n        \"password\": \"$2b$10$1xmJHKKldXI9SZbqxsVO0O/walBti/eumCcQXEAWRQvXNG51KFW\",\n        \"phoneNumber\": \"+33123456789\",\n        \"avatar\": \"https://eu.ui-avatars.com/api/?name=test%20testName\",\n        \"bio\": \"about me...\",\n        \"created\": \"2022-01-18T20:21:21.757Z\",\n        \"__v\": 0\n    }, ...]",
+          "content": "HTTP/1.1 200 OK\n [{\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"premium\": true,\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQkDuCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n },\n    {\n        \"_id\": \"61e72141d76d9d3812d8634d\",\n        \"status\": \"active\",\n        \"firstname\": \"test\",\n        \"lastname\": \"testName\",\n        \"premium\": false,\n        \"gender\": \"male\",\n        \"roles\": [\n            \"user\"\n        ],\n        \"email\": \"test.test@epitech.eu\",\n        \"password\": \"$2b$10$1xmJHKKldXI9SZbqxsVOO/walBti/eumCcQXEAWRQvXNG51KFW\",\n        \"phoneNumber\": \"+33123456789\",\n        \"avatar\": \"https://eu.ui-avatars.com/api/?name=test%20testName\",\n        \"bio\": \"about me...\",\n        \"created\": \"2022-01-18T20:21:21.757Z\",\n        \"__v\": 0\n    }, ...]",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "User"
   },
   {
@@ -2088,18 +2215,45 @@
             "optional": false,
             "field": "create",
             "description": "<p>create of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n }",
+          "content": "HTTP/1.1 200 OK\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuaCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n }",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "error": {
+      "fields": {
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (Bad Token):",
+          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "User"
   },
   {
@@ -2129,7 +2283,27 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "error": {
+      "fields": {
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (Bad Token):",
+          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "User"
   },
   {
@@ -2258,6 +2432,13 @@
             "optional": false,
             "field": "create",
             "description": "<p>create of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
           }
         ]
       },
@@ -2269,7 +2450,27 @@
         }
       ]
     },
-    "filename": "src/documentation.ts",
+    "error": {
+      "fields": {
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (Bad Token):",
+          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/documentations/documentation.ts",
     "groupTitle": "User"
   }
 ]

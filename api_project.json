@@ -2,7 +2,7 @@
   "name": "Hynos",
   "version": "1.0.0",
   "description": "Docmumentations API Hynos",
-  "url": "http://20.188.46.29:3000/",
+  "url": "https://api.hynos.fr/",
   "title": "Hynos API doc",
   "apidoc": "0.3.0",
   "order": [
@@ -15,7 +15,7 @@
   "defaultVersion": "0.0.0",
   "generator": {
     "name": "apidoc",
-    "time": "2022-01-24T07:08:54.899Z",
+    "time": "2022-02-06T13:57:39.427Z",
     "url": "https://apidocjs.com",
     "version": "0.29.0"
   }
