@@ -2,10 +2,30 @@
   {
     "type": "Patch",
     "url": "auth/changePassword",
-    "title": "Change Password Path.",
+    "title": "4.   Change Password.",
     "version": "1.0.0",
     "name": "Change_Password_Path",
     "group": "Authentication",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Users unique access-token.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInRWV...\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "parameter": {
       "fields": {
         "Body": [
@@ -39,13 +59,13 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/auth/auth.doc.ts",
     "groupTitle": "Authentication"
   },
   {
     "type": "Post",
     "url": "auth/forgotPassword",
-    "title": "Forgot Password Path.",
+    "title": "3.   Forgot Password.",
     "version": "1.0.0",
     "name": "Forgot_Password_Path",
     "group": "Authentication",
@@ -95,13 +115,13 @@
         ]
       }
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/auth/auth.doc.ts",
     "groupTitle": "Authentication"
   },
   {
     "type": "post",
     "url": "auth/login",
-    "title": "Login User.",
+    "title": "2. Login User.",
     "version": "1.0.0",
     "name": "Login_User",
     "group": "Authentication",
@@ -165,13 +185,13 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/auth/auth.doc.ts",
     "groupTitle": "Authentication"
   },
   {
     "type": "post",
     "url": "auth/signup",
-    "title": "Create User.",
+    "title": "1. Create User.",
     "version": "1.0.0",
     "name": "Sign_up_User",
     "group": "Authentication",
@@ -215,14 +235,6 @@
           },
           {
             "group": "Body",
-            "type": "String",
-            "optional": true,
-            "field": "gender",
-            "defaultValue": "unknown",
-            "description": "<p>gender of the user.</p>"
-          },
-          {
-            "group": "Body",
             "type": "String[]",
             "optional": true,
             "field": "roles",
@@ -246,103 +258,6 @@
         ]
       }
     },
-    "success": {
-      "fields": {
-        "Success 201": [
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "_id",
-            "description": "<p>_id of the User.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "firstname",
-            "description": "<p>firstname of the User.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "lastname",
-            "description": "<p>lastname of the User.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "gender",
-            "description": "<p>gender of the User.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String[]",
-            "optional": false,
-            "field": "roles",
-            "description": "<p>roles of the User.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "email",
-            "description": "<p>email of the user.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "phoneNumber",
-            "description": "<p>phonenumber of the user.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "password",
-            "description": "<p>password of the user.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "avatar",
-            "description": "<p>avatar of the user.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "bio",
-            "description": "<p>bio of the user.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "Date",
-            "optional": false,
-            "field": "create",
-            "description": "<p>create of the user.</p>"
-          },
-          {
-            "group": "Success 201",
-            "type": "Number",
-            "optional": false,
-            "field": "__v",
-            "description": "<p>version of the user informations.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 201 CREATED\n{\n     \"status\": \"pending\",\n     \"firstname\": \"Hugo\",\n     \"lastname\": \"Meyer\",\n     \"gender\": \"male\",\n     \"roles\": [\n         \"user\"\n     ],\n     \"email\": \"hugo.meyer@epitech.eu\",\n     \"password\": \"$2b$10$Mmt66zoiMlSBQu66DaKeHuagCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n     \"phoneNumber\": \"+33123123123\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=Hugo%20Meyer\",\n     \"bio\": \"about me...\",\n     \"_id\": \"616044f52d3a0b1a91b37442\",\n     \"created\": \"2021-10-08T13:17:41.618Z\",\n     \"__v\": 0\n}",
-          "type": "json"
-        }
-      ]
-    },
     "error": {
       "fields": {
         "Error 400": [
@@ -363,36 +278,184 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Authentication"
+    "filename": "src/auth/auth.doc.ts",
+    "groupTitle": "Authentication",
+    "success": {
+      "fields": {
+        "Success 201": [
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>Status of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>firstname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Boolean",
+            "optional": false,
+            "field": "premium",
+            "description": "<p>Premium or not (true|false).</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "favoris",
+            "description": "<p>favoris of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "phoneNumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>hashed password of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "hashedRefreshToken",
+            "description": "<p>hashed Refresh Token of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 CREATED\n {\n     \"_id\": \"61f949b91cb6f5c5e7785db9\",\n     \"status\": \"active\",\n     \"firstname\": \"teest\",\n     \"lastname\": \"test\",\n     \"premium\": true,\n     \"roles\": [\n         \"user\",\n         \"admin\"\n     ],\n     \"favoris\": [\n         \"616404f2837cb47127361aef\"\n     ],\n     \"email\": \"test.test@epitech.eu\",\n     \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n     \"phoneNumber\": \"+33123456789\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n     \"bio\": \"about me...\",\n     \"created\": \"2022-02-01T14:54:49.587Z\",\n     \"__v\": 194,\n     \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n }",
+          "type": "json"
+        }
+      ]
+    }
   },
   {
     "type": "delete",
-    "url": "shop/products/:id",
-    "title": "Delete product.",
+    "url": "shop/products?_id=value",
+    "title": "3. Delete product.",
     "version": "1.0.0",
     "name": "Delete_product",
     "group": "Shop",
-    "filename": "src/documentations/documentation.ts",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "filename": "src/shop/shop.doc.ts",
     "groupTitle": "Shop"
   },
   {
     "type": "delete",
-    "url": "shop/purchase/:id",
-    "title": "Delete purchase.",
+    "url": "shop/purchase?_id=value",
+    "title": "8. Delete purchase.",
     "version": "1.0.0",
     "name": "Delete_purchase",
     "group": "Shop",
-    "filename": "src/documentations/documentation.ts",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "filename": "src/shop/shop.doc.ts",
     "groupTitle": "Shop"
   },
   {
     "type": "get",
-    "url": "shop/products",
-    "title": "Get all products.",
+    "url": "shop/purchase/customer",
+    "title": "9.1. Get User purchase.",
     "version": "1.0.0",
-    "name": "Get_all_products",
+    "name": "Get_User_purchase",
     "group": "Shop",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Users unique access-token.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInRWV...\"\n}",
+          "type": "json"
+        }
+      ]
+    },
     "success": {
       "fields": {
         "Success 200": [
@@ -401,109 +464,221 @@
             "type": "String",
             "optional": false,
             "field": "_id",
-            "description": "<p>id of the product.</p>"
+            "description": "<p>id of the purchase.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "status",
+            "description": "<p>status of the purchase.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>address of the customer.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[_id]",
+            "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[firstname]",
+            "description": "<p>firstname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[lastname]",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Boolean",
+            "optional": false,
+            "field": "customer[premium]",
+            "description": "<p>If the user is premium or not.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "customer[roles]",
+            "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "customer[favoris]",
+            "description": "<p>favoris of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[email]",
+            "description": "<p>email of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[phoneNumber]",
+            "description": "<p>phone number of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[password]",
+            "description": "<p>password of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[hashedRefreshToken]",
+            "description": "<p>hashed RefreshToken of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[avatar]",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[bio]",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "Date",
+            "optional": false,
+            "field": "customer[create]",
+            "description": "<p>create date of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products[_id]",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "products[status]",
             "description": "<p>status of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "type",
+            "field": "products[type]",
             "description": "<p>type of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "title",
+            "field": "products[title]",
             "description": "<p>title of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "link",
+            "field": "products[link]",
             "description": "<p>link of the product.</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "String[]",
             "optional": false,
-            "field": "imageLink[]",
+            "field": "products[imageLink]",
             "description": "<p>imageLink of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "availability",
+            "field": "products[availability]",
             "description": "<p>availability of the product.</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
-            "optional": true,
-            "field": "price[value]",
-            "description": "<p>price value of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": true,
-            "field": "price[currency]",
-            "description": "<p>price currency of the product.</p>"
+            "type": "String[]",
+            "optional": false,
+            "field": "products[price]",
+            "description": "<p>price of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "description",
+            "field": "products[description]",
             "description": "<p>description of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "gender",
+            "field": "products[gender]",
             "description": "<p>gender category of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "color",
+            "field": "products[color]",
             "description": "<p>color of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "created",
+            "field": "products[created]",
             "description": "<p>creation date of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "price[value]",
+            "description": "<p>total price value of the purchase.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [{\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n },\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }, ...]",
+          "content": "   HTTP/1.1 200 OK\n[{\n  \"status\": \"pending\",\n  \"customer\": {\n        \"_id\": \"61f949b91cb6f5c5e7785db9\",\n        \"status\": \"active\",\n        \"firstname\": \"teest\",\n        \"lastname\": \"test\",\n        \"premium\": true,\n        \"roles\": [\n            \"user\",\n            \"admin\"\n        ],\n        \"favoris\": [\n            \"616404f2837cb47127361aef\"\n        ],\n        \"email\": \"test.test@epitech.eu\",\n        \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n        \"phoneNumber\": \"+33123456789\",\n        \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n        \"bio\": \"about me...\",\n        \"created\": \"2022-02-01T14:54:49.587Z\",\n        \"__v\": 194,\n        \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n  },\n  \"products\": [\n      {\n          \"price\": {\n              \"value\": 49.99,\n              \"currency\": \"EUR\"\n          },\n          \"_id\": \"6164048b837cb47127361aeb\",\n          \"status\": \"active\",\n          \"type\": \"module\",\n          \"title\": \"Bracelet Hynos\",\n          \"link\": \"\",\n          \"imageLink\": [\n              \"https://i.imgur.com/LaMXbW6.png\"\n          ],\n          \"availability\": \"available\",\n          \"gender\": \"unisexe\",\n          \"description\": \"Bracelet avec module hynos anti-agression.\",\n          \"color\": \"black/silver\",\n          \"created\": \"2021-10-11T09:31:55.010Z\",\n          \"__v\": 0\n      }\n  ],\n  \"price\": {\n      \"value\": 49.99,\n      \"currency\": \"EUR\"\n  },\n  \"address\": \"21 rue de Dieuze\",\n  \"_id\": \"61ed7719298d87aa7bcad70c\",\n  \"created\": \"2022-01-23T15:41:13.423Z\",\n  \"__v\": 0\n}, ...]",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/shop/shop.doc.ts",
     "groupTitle": "Shop"
   },
   {
     "type": "get",
     "url": "shop/products/category",
-    "title": "Get all products category.",
+    "title": "5. Get all products category.",
     "version": "1.0.0",
     "name": "Get_all_products_category",
     "group": "Shop",
@@ -516,196 +691,336 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/shop/shop.doc.ts",
     "groupTitle": "Shop"
   },
   {
     "type": "get",
-    "url": "shop/purchase",
-    "title": "Get all purchase.",
+    "url": "shop/products(?keyName=value)",
+    "title": "4. Get products.",
     "version": "1.0.0",
-    "name": "Get_all_purchases",
+    "name": "Get_products",
     "group": "Shop",
     "success": {
       "fields": {
-        "Success 201": [
+        "Success 200": [
           {
-            "group": "Success 201",
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": true,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n [{\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n },\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }, ...]",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/shop/shop.doc.ts",
+    "groupTitle": "Shop"
+  },
+  {
+    "type": "get",
+    "url": "shop/purchase(?keyName=value)",
+    "title": "9. Get purchase.",
+    "version": "1.0.0",
+    "name": "Get_purchase",
+    "group": "Shop",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "_id",
             "description": "<p>id of the purchase.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "status",
             "description": "<p>status of the purchase.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "address",
             "description": "<p>address of the customer.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[_id]",
             "description": "<p>_id of the User.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[firstname]",
             "description": "<p>firstname of the User.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[lastname]",
             "description": "<p>lastname of the User.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "Boolean",
             "optional": false,
             "field": "customer[premium]",
             "description": "<p>If the user is premium or not.</p>"
           },
           {
-            "group": "Success 201",
-            "type": "String",
-            "optional": false,
-            "field": "customer[gender]",
-            "description": "<p>gender of the User.</p>"
-          },
-          {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String[]",
             "optional": false,
             "field": "customer[roles]",
             "description": "<p>roles of the User.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "customer[favoris]",
+            "description": "<p>favoris of the User.</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[email]",
             "description": "<p>email of the user.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[phoneNumber]",
             "description": "<p>phone number of the user.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[password]",
             "description": "<p>password of the user.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "customer[hashedRefreshToken]",
+            "description": "<p>hashed RefreshToken of the user.</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[avatar]",
             "description": "<p>avatar of the user.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "customer[bio]",
             "description": "<p>bio of the user.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "Date",
             "optional": false,
             "field": "customer[create]",
             "description": "<p>create date of the user.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[_id]",
             "description": "<p>id of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[status]",
             "description": "<p>status of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[type]",
             "description": "<p>type of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[title]",
             "description": "<p>title of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "products",
-            "description": "<p>[link               link of the product.</p>"
+            "field": "products[link]",
+            "description": "<p>link of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "products[imageLink]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[availability]",
             "description": "<p>availability of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "products[price]",
+            "description": "<p>price of the product.</p>"
+          },
+          {
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[description]",
             "description": "<p>description of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[gender]",
             "description": "<p>gender category of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[color]",
             "description": "<p>color of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "products[created]",
             "description": "<p>creation date of the product.</p>"
           },
           {
-            "group": "Success 201",
+            "group": "Success 200",
             "type": "String[]",
             "optional": false,
             "field": "price[value]",
@@ -716,254 +1031,31 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 201 CREATED\n[{\n   \"status\": \"pending\",\n   \"customer\": {\n       \"_id\": \"61dee544cd596a26c13b2412\",\n       \"status\": \"pending\",\n       \"firstname\": \"Hugo\",\n       \"lastname\": \"Meyer\",\n       \"premium\": true,\n       \"gender\": \"male\",\n       \"roles\": [\n           \"admin\"\n       ],\n       \"email\": \"hugo.meyer@epitech.eu\",\n       \"password\": \"$2b$10$u4FktmI26UzLLophk6ZuG.lb4LnTStJOXmjhC/2wEzv8F7acmCOau\",\n       \"phoneNumber\": \"+33663657983\",\n       \"avatar\": \"https://eu.ui-avatars.com/api/?name=Hugo%20Meyer\",\n       \"bio\": \"about me...\",\n       \"created\": \"2022-01-12T14:27:16.526Z\",\n       \"__v\": 0\n   },\n   \"products\": [\n       {\n           \"price\": {\n               \"value\": 49.99,\n               \"currency\": \"EUR\"\n           },\n           \"_id\": \"6164048b837cb47127361aeb\",\n           \"status\": \"active\",\n           \"type\": \"module\",\n           \"title\": \"Bracelet Hynos\",\n           \"link\": \"\",\n           \"imageLink\": [\n               \"https://i.imgur.com/LaMXbW6.png\"\n           ],\n           \"availability\": \"available\",\n           \"gender\": \"unisexe\",\n           \"description\": \"Bracelet avec module hynos anti-agression.\",\n           \"color\": \"black/silver\",\n           \"created\": \"2021-10-11T09:31:55.010Z\",\n           \"__v\": 0\n       }\n   ],\n   \"price\": {\n       \"value\": 49.99,\n       \"currency\": \"EUR\"\n   },\n   \"address\": \"21 rue de Dieuze\",\n   \"_id\": \"61ed7719298d87aa7bcad70c\",\n   \"created\": \"2022-01-23T15:41:13.423Z\",\n   \"__v\": 0\n }, ...]",
+          "content": "   HTTP/1.1 200 OK\n[{\n  \"status\": \"pending\",\n  \"customer\": {\n        \"_id\": \"61f949b91cb6f5c5e7785db9\",\n        \"status\": \"active\",\n        \"firstname\": \"teest\",\n        \"lastname\": \"test\",\n        \"premium\": true,\n        \"roles\": [\n            \"user\",\n            \"admin\"\n        ],\n        \"favoris\": [\n            \"616404f2837cb47127361aef\"\n        ],\n        \"email\": \"test.test@epitech.eu\",\n        \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n        \"phoneNumber\": \"+33123456789\",\n        \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n        \"bio\": \"about me...\",\n        \"created\": \"2022-02-01T14:54:49.587Z\",\n        \"__v\": 194,\n        \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n  },\n  \"products\": [\n      {\n          \"price\": {\n              \"value\": 49.99,\n              \"currency\": \"EUR\"\n          },\n          \"_id\": \"6164048b837cb47127361aeb\",\n          \"status\": \"active\",\n          \"type\": \"module\",\n          \"title\": \"Bracelet Hynos\",\n          \"link\": \"\",\n          \"imageLink\": [\n              \"https://i.imgur.com/LaMXbW6.png\"\n          ],\n          \"availability\": \"available\",\n          \"gender\": \"unisexe\",\n          \"description\": \"Bracelet avec module hynos anti-agression.\",\n          \"color\": \"black/silver\",\n          \"created\": \"2021-10-11T09:31:55.010Z\",\n          \"__v\": 0\n      }\n  ],\n  \"price\": {\n      \"value\": 49.99,\n      \"currency\": \"EUR\"\n  },\n  \"address\": \"21 rue de Dieuze\",\n  \"_id\": \"61ed7719298d87aa7bcad70c\",\n  \"created\": \"2022-01-23T15:41:13.423Z\",\n  \"__v\": 0\n}, ...]",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Shop"
-  },
-  {
-    "type": "get",
-    "url": "shop/products/category/:unisexe",
-    "title": "Get products by genre.",
-    "version": "1.0.0",
-    "name": "Get_products_by_genre",
-    "group": "Shop",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "_id",
-            "description": "<p>id of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "type",
-            "description": "<p>type of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>title of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "link",
-            "description": "<p>link of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "imageLink[]",
-            "description": "<p>imageLink of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "availability",
-            "description": "<p>availability of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": true,
-            "field": "price[value]",
-            "description": "<p>price value of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": true,
-            "field": "price[currency]",
-            "description": "<p>price currency of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "description",
-            "description": "<p>description of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "gender",
-            "description": "<p>gender category of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "color",
-            "description": "<p>color of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "created",
-            "description": "<p>creation date of the product.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [{\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n },\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }, ...]",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Shop"
-  },
-  {
-    "type": "get",
-    "url": "shop/products/category/:type",
-    "title": "Get products by type.",
-    "version": "1.0.0",
-    "name": "Get_products_by_type",
-    "group": "Shop",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "_id",
-            "description": "<p>id of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "type",
-            "description": "<p>type of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>title of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "link",
-            "description": "<p>link of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "imageLink[]",
-            "description": "<p>imageLink of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "availability",
-            "description": "<p>availability of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": true,
-            "field": "price[value]",
-            "description": "<p>price value of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": true,
-            "field": "price[currency]",
-            "description": "<p>price currency of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "description",
-            "description": "<p>description of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "gender",
-            "description": "<p>gender category of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "color",
-            "description": "<p>color of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "created",
-            "description": "<p>creation date of the product.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [{\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n },\n {\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"_id\": \"6164048b837cb47127361aeb\",\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos Noir/Argent\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/LaMXbW6.png\"\n     ],\n     \"availability\": \"available\",\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet noir avec module argente Hynos anti-agression.\",\n     \"color\": \"black\",\n     \"created\": \"2021-10-11T09:31:55.010Z\",\n     \"__v\": 0\n }, ...]",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/shop/shop.doc.ts",
     "groupTitle": "Shop"
   },
   {
     "type": "patch",
-    "url": "shop/products/:id",
-    "title": "Update product.",
+    "url": "shop/products?_id=value",
+    "title": "2. Update product.",
     "version": "1.0.0",
     "name": "Update_product",
     "group": "Shop",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Body": [
           {
-            "group": "Parameter",
+            "group": "Body",
             "type": "String",
             "optional": false,
             "field": "KeyName",
@@ -1083,250 +1175,37 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/shop/shop.doc.ts",
     "groupTitle": "Shop"
   },
   {
-    "type": "post",
-    "url": "shop/products",
-    "title": "Create product.",
+    "type": "patch",
+    "url": "shop/purchase?_id=value",
+    "title": "7. Update purchase.",
     "version": "1.0.0",
-    "name": "create_product",
+    "name": "Update_purchase",
     "group": "Shop",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
     "parameter": {
       "fields": {
         "Parameter": [
           {
             "group": "Parameter",
             "type": "String",
-            "optional": true,
-            "field": "status",
-            "description": "<p>status of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "type",
-            "description": "<p>type of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
             "optional": false,
-            "field": "title",
-            "description": "<p>title of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "link",
-            "description": "<p>link of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "imageLink",
-            "description": "<p>imageLink of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "availability",
-            "description": "<p>availability of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "price[value]",
-            "description": "<p>price value of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": false,
-            "field": "price[currency]",
-            "description": "<p>price currency of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "description",
-            "description": "<p>description of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "gender",
-            "description": "<p>gender category of the product.</p>"
-          },
-          {
-            "group": "Parameter",
-            "type": "String",
-            "optional": true,
-            "field": "color",
-            "description": "<p>color of the product.</p>"
+            "field": "KeyName",
+            "description": "<p>KeyName and the value to change.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"status\": \"active\",\n    \"type\": \"module\",\n    \"title\": \"Bracelet Hynos\",\n    \"link\": \"https://hynos.fr/products/1\",\n    \"imageLink\": [\n        \"https://i.imgur.com/R9HnrxV.png\"\n    ],\n    \"availability\": \"available\",\n    \"price\": {\n        \"value\": 49.99,\n        \"currency\": \"EUR\"\n    },\n    \"description\": \"Bracelet avec Module hynos anti-agression.\",\n    \"color\": \"peach\"\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "_id",
-            "description": "<p>id of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "status",
-            "description": "<p>status of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "type",
-            "description": "<p>type of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "title",
-            "description": "<p>title of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "link",
-            "description": "<p>link of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "imageLink[]",
-            "description": "<p>imageLink of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "availability",
-            "description": "<p>availability of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "price[value]",
-            "description": "<p>price value of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "price[currency]",
-            "description": "<p>price currency of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "description",
-            "description": "<p>description of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "gender",
-            "description": "<p>gender category of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "color",
-            "description": "<p>color of the product.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "created",
-            "description": "<p>creation date of the product.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Shop"
-  },
-  {
-    "type": "post",
-    "url": "shop/purchase",
-    "title": "Create purchase.",
-    "version": "1.0.0",
-    "name": "create_purchase",
-    "group": "Shop",
-    "parameter": {
-      "fields": {
-        "Body": [
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "customerID",
-            "description": "<p>customerID of the purchase.</p>"
-          },
-          {
-            "group": "Body",
-            "type": "String[]",
-            "optional": false,
-            "field": "products",
-            "description": "<p>productsID of the purchase.</p>"
-          },
-          {
-            "group": "Body",
-            "type": "String",
-            "optional": false,
-            "field": "address",
-            "description": "<p>address of the customer.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Request-Example:",
-          "content": "{\n    \"customerID\": \"6187dd52cf1b09b167ffde3f\",\n    \"products\": [\n        \"6164048b837cb47127361aeb\",\n    ],\n    \"address\": \"13 rue de Dieuze\"\n}",
+          "content": "{\n    \"status\": \"inactive\",\n    \"type\": \"module\",\n    \"title\": \"Bracelet Hynos\",\n    \"description\": \"Bracelet avec Module hynos anti-agression.\"\n}",
           "type": "json"
         }
       ]
@@ -1471,8 +1350,15 @@
             "group": "Success 201",
             "type": "String",
             "optional": false,
-            "field": "products",
-            "description": "<p>[link               link of the product.</p>"
+            "field": "products[link]",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "products[imageLink]",
+            "description": "<p>imageLink of the product.</p>"
           },
           {
             "group": "Success 201",
@@ -1480,6 +1366,13 @@
             "optional": false,
             "field": "products[availability]",
             "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "products[price]",
+            "description": "<p>price of the product.</p>"
           },
           {
             "group": "Success 201",
@@ -1521,123 +1414,116 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "    HTTP/1.1 201 CREATED\n{\n   \"status\": \"pending\",\n   \"customer\": {\n       \"_id\": \"61dee544cd596a26c13b2412\",\n       \"status\": \"pending\",\n       \"firstname\": \"Hugo\",\n       \"lastname\": \"Meyer\",\n       \"premium\": true,\n       \"gender\": \"male\",\n       \"roles\": [\n           \"admin\"\n       ],\n       \"email\": \"hugo.meyer@epitech.eu\",\n       \"password\": \"$2b$10$u4FktmI26UzLLophk6ZuG.lb4LnTStJOXmjhC/2wEzv8F7acmCOau\",\n       \"phoneNumber\": \"+33663657983\",\n       \"avatar\": \"https://eu.ui-avatars.com/api/?name=Hugo%20Meyer\",\n       \"bio\": \"about me...\",\n       \"created\": \"2022-01-12T14:27:16.526Z\",\n       \"__v\": 0\n   },\n   \"products\": [\n       {\n           \"price\": {\n               \"value\": 49.99,\n               \"currency\": \"EUR\"\n           },\n           \"_id\": \"6164048b837cb47127361aeb\",\n           \"status\": \"active\",\n           \"type\": \"module\",\n           \"title\": \"Bracelet Hynos\",\n           \"link\": \"\",\n           \"imageLink\": [\n               \"https://i.imgur.com/LaMXbW6.png\"\n           ],\n           \"availability\": \"available\",\n           \"gender\": \"unisexe\",\n           \"description\": \"Bracelet avec module hynos anti-agression.\",\n           \"color\": \"black/silver\",\n           \"created\": \"2021-10-11T09:31:55.010Z\",\n           \"__v\": 0\n       }\n   ],\n   \"price\": {\n       \"value\": 49.99,\n       \"currency\": \"EUR\"\n   },\n   \"address\": \"21 rue de Dieuze\",\n   \"_id\": \"61ed7719298d87aa7bcad70c\",\n   \"created\": \"2022-01-23T15:41:13.423Z\",\n   \"__v\": 0\n}",
+          "content": "    HTTP/1.1 201 CREATED\n {\n   \"status\": \"pending\",\n   \"customer\": {\n         \"_id\": \"61f949b91cb6f5c5e7785db9\",\n         \"status\": \"active\",\n         \"firstname\": \"teest\",\n         \"lastname\": \"test\",\n         \"premium\": true,\n         \"roles\": [\n             \"user\",\n             \"admin\"\n         ],\n         \"favoris\": [\n             \"616404f2837cb47127361aef\"\n         ],\n         \"email\": \"test.test@epitech.eu\",\n         \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n         \"phoneNumber\": \"+33123456789\",\n         \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n         \"bio\": \"about me...\",\n         \"created\": \"2022-02-01T14:54:49.587Z\",\n         \"__v\": 194,\n         \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n   },\n   \"products\": [\n       {\n           \"price\": {\n               \"value\": 49.99,\n               \"currency\": \"EUR\"\n           },\n           \"_id\": \"6164048b837cb47127361aeb\",\n           \"status\": \"active\",\n           \"type\": \"module\",\n           \"title\": \"Bracelet Hynos\",\n           \"link\": \"\",\n           \"imageLink\": [\n               \"https://i.imgur.com/LaMXbW6.png\"\n           ],\n           \"availability\": \"available\",\n           \"gender\": \"unisexe\",\n           \"description\": \"Bracelet avec module hynos anti-agression.\",\n           \"color\": \"black/silver\",\n           \"created\": \"2021-10-11T09:31:55.010Z\",\n           \"__v\": 0\n       }\n   ],\n   \"price\": {\n       \"value\": 49.99,\n       \"currency\": \"EUR\"\n   },\n   \"address\": \"21 rue de Dieuze\",\n   \"_id\": \"61ed7719298d87aa7bcad70c\",\n   \"created\": \"2022-01-23T15:41:13.423Z\",\n   \"__v\": 0\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/shop/shop.doc.ts",
     "groupTitle": "Shop"
   },
   {
-    "type": "get",
-    "url": "contacts",
-    "title": "Get all urgency contacts.",
+    "type": "post",
+    "url": "shop/products",
+    "title": "1. Create product.",
     "version": "1.0.0",
-    "name": "Get_all_urgency_contacts",
-    "group": "Urgency_Contacts",
-    "success": {
+    "name": "create_product",
+    "group": "Shop",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
+    "parameter": {
       "fields": {
-        "Success 200": [
+        "Body": [
           {
-            "group": "Success 200",
+            "group": "Body",
             "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>id of the urgency contact.</p>"
+            "optional": true,
+            "field": "status",
+            "description": "<p>status of the product.</p>"
           },
           {
-            "group": "Success 200",
+            "group": "Body",
             "type": "String",
-            "optional": false,
-            "field": "ownerId",
-            "description": "<p>Id of the owner of comtact.</p>"
+            "optional": true,
+            "field": "type",
+            "description": "<p>type of the product.</p>"
           },
           {
-            "group": "Success 200",
+            "group": "Body",
             "type": "String",
             "optional": false,
-            "field": "fullname",
-            "description": "<p>fullname of the urgency contact.</p>"
+            "field": "title",
+            "description": "<p>title of the product.</p>"
           },
           {
-            "group": "Success 200",
+            "group": "Body",
+            "type": "String",
+            "optional": true,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Body",
             "type": "String",
             "optional": false,
-            "field": "phonenumber",
-            "description": "<p>Phonenumber of the urgency contact.</p>"
+            "field": "imageLink",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": true,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": true,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": true,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": true,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
           }
         ]
       },
       "examples": [
         {
-          "title": "Success-Response:",
-          "content": " HTTP/1.1 200 OK\n [{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n},\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Toto\",\n  \"phoneNumber\": \"+33633333333\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Toto\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163db83c5863e36ba00d862\",\n  \"created\": \"2021-10-11T06:36:51.841Z\",\n  \"__v\": 0\n},\n   ...]",
+          "title": "Request-Example:",
+          "content": "{\n    \"status\": \"active\",\n    \"type\": \"module\",\n    \"title\": \"Bracelet Hynos\",\n    \"link\": \"https://hynos.fr/products/1\",\n    \"imageLink\": [\n        \"https://i.imgur.com/R9HnrxV.png\"\n    ],\n    \"availability\": \"available\",\n    \"price\": {\n        \"value\": 49.99,\n        \"currency\": \"EUR\"\n    },\n    \"description\": \"Bracelet avec Module hynos anti-agression.\",\n    \"color\": \"peach\"\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Urgency_Contacts"
-  },
-  {
-    "type": "get",
-    "url": "contacts/:id",
-    "title": "Get an urgency contacts.",
-    "version": "1.0.0",
-    "name": "Get_an_urgency_contacts",
-    "group": "Urgency_Contacts",
-    "success": {
-      "fields": {
-        "Success 200": [
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "id",
-            "description": "<p>id of the urgency contact.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "ownerId",
-            "description": "<p>Id of the owner of comtact.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "fullname",
-            "description": "<p>fullname of the urgency contact.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "phonenumber",
-            "description": "<p>Phonenumber of the urgency contact.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Success-Response:",
-          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Urgency_Contacts"
-  },
-  {
-    "type": "get",
-    "url": "contacts/urgency/:ownerId",
-    "title": "Get the owner of an urgency contacts.",
-    "version": "1.0.0",
-    "name": "Get_the_owner_of_an_urgency_contacts",
-    "group": "Urgency_Contacts",
     "success": {
       "fields": {
         "Success 200": [
@@ -1646,129 +1532,395 @@
             "type": "String",
             "optional": false,
             "field": "_id",
-            "description": "<p>Id of the urgency contact.</p>"
+            "description": "<p>id of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "ownerId",
-            "description": "<p>Id of the owner of comtact.</p>"
+            "field": "status",
+            "description": "<p>status of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "fullname",
-            "description": "<p>fullname of the urgency contact.</p>"
+            "field": "type",
+            "description": "<p>type of the product.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "phonenumber",
-            "description": "<p>Phonenumber of the urgency contact.</p>"
+            "field": "title",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "link",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "imageLink[]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "availability",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "price[value]",
+            "description": "<p>price value of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "price[currency]",
+            "description": "<p>price currency of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "description",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "gender",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "color",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "created",
+            "description": "<p>creation date of the product.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
+          "content": "HTTP/1.1 200 OK\n {\n     \"status\": \"active\",\n     \"type\": \"module\",\n     \"title\": \"Bracelet Hynos\",\n     \"link\": \"\",\n     \"imageLink\": [\n         \"https://i.imgur.com/R9HnrxV.png\"\n     ],\n     \"availability\": \"available\",\n     \"price\": {\n         \"value\": 49.99,\n         \"currency\": \"EUR\"\n     },\n     \"gender\": \"unisexe\",\n     \"description\": \"Bracelet avec Module hynos anti-agression.\",\n     \"color\": \"peach\",\n     \"_id\": \"61640526837cb47127361af1\",\n     \"created\": \"2021-10-11T09:34:30.324Z\",\n     \"__v\": 0\n }",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Urgency_Contacts"
+    "filename": "src/shop/shop.doc.ts",
+    "groupTitle": "Shop"
   },
   {
-    "type": "delete",
-    "url": "contacts/:id",
-    "title": "Remove an urgency contacts.",
+    "type": "post",
+    "url": "shop/purchase",
+    "title": "6. Create purchase.",
     "version": "1.0.0",
-    "name": "Remove_an_urgency_contacts",
-    "group": "Urgency_Contacts",
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "Urgency_Contacts"
-  },
-  {
-    "type": "patch",
-    "url": "contacts/:id",
-    "title": "Update an urgency contacts.",
-    "version": "1.0.0",
-    "name": "Update_an_urgency_contacts",
-    "group": "Urgency_Contacts",
+    "name": "create_purchase",
+    "group": "Shop",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Body": [
           {
-            "group": "Parameter",
+            "group": "Body",
             "type": "String",
             "optional": false,
-            "field": "KeyName",
-            "description": "<p>Key name and value to edit.</p>"
+            "field": "customerID",
+            "description": "<p>customerID of the purchase.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String[]",
+            "optional": false,
+            "field": "products",
+            "description": "<p>productsID of the purchase.</p>"
+          },
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "address",
+            "description": "<p>address of the customer.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Request-Example:",
-          "content": "{\n    \"username\": \"Titu\",\n    \"phoneNumber\": \"+33622222222\"\n}",
+          "content": "{\n    \"customerID\": \"6187dd52cf1b09b167ffde3f\",\n    \"products\": [\n        \"6164048b837cb47127361aeb\",\n    ],\n    \"address\": \"13 rue de Dieuze\"\n}",
           "type": "json"
         }
       ]
     },
     "success": {
       "fields": {
-        "Success 200": [
+        "Success 201": [
           {
-            "group": "Success 200",
+            "group": "Success 201",
             "type": "String",
             "optional": false,
-            "field": "id",
-            "description": "<p>id of the urgency contact.</p>"
+            "field": "_id",
+            "description": "<p>id of the purchase.</p>"
           },
           {
-            "group": "Success 200",
+            "group": "Success 201",
             "type": "String",
             "optional": false,
-            "field": "ownerId",
-            "description": "<p>Id of the owner of comtact.</p>"
+            "field": "status",
+            "description": "<p>status of the purchase.</p>"
           },
           {
-            "group": "Success 200",
+            "group": "Success 201",
             "type": "String",
             "optional": false,
-            "field": "fullname",
-            "description": "<p>fullname of the urgency contact.</p>"
+            "field": "address",
+            "description": "<p>address of the customer.</p>"
           },
           {
-            "group": "Success 200",
+            "group": "Success 201",
             "type": "String",
             "optional": false,
-            "field": "phonenumber",
-            "description": "<p>Phonenumber of the urgency contact.</p>"
+            "field": "customer[_id]",
+            "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[firstname]",
+            "description": "<p>firstname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[lastname]",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Boolean",
+            "optional": false,
+            "field": "customer[premium]",
+            "description": "<p>If the user is premium or not.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "customer[roles]",
+            "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "customer[favoris]",
+            "description": "<p>favoris of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[email]",
+            "description": "<p>email of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[phoneNumber]",
+            "description": "<p>phone number of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[password]",
+            "description": "<p>password of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[hashedRefreshToken]",
+            "description": "<p>hashed RefreshToken of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[avatar]",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "customer[bio]",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Date",
+            "optional": false,
+            "field": "customer[create]",
+            "description": "<p>create date of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[_id]",
+            "description": "<p>id of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[status]",
+            "description": "<p>status of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[type]",
+            "description": "<p>type of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[title]",
+            "description": "<p>title of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[link]",
+            "description": "<p>link of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "products[imageLink]",
+            "description": "<p>imageLink of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[availability]",
+            "description": "<p>availability of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "products[price]",
+            "description": "<p>price of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[description]",
+            "description": "<p>description of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[gender]",
+            "description": "<p>gender category of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[color]",
+            "description": "<p>color of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "products[created]",
+            "description": "<p>creation date of the product.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "price[value]",
+            "description": "<p>total price value of the purchase.</p>"
           }
         ]
       },
       "examples": [
         {
           "title": "Success-Response:",
-          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
+          "content": "    HTTP/1.1 201 CREATED\n{\n   \"status\": \"pending\",\n   \"customer\": {\n         \"_id\": \"61f949b91cb6f5c5e7785db9\",\n         \"status\": \"active\",\n         \"firstname\": \"teest\",\n         \"lastname\": \"test\",\n         \"premium\": true,\n         \"roles\": [\n             \"user\",\n             \"admin\"\n         ],\n         \"favoris\": [\n             \"616404f2837cb47127361aef\"\n         ],\n         \"email\": \"test.test@epitech.eu\",\n         \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n         \"phoneNumber\": \"+33123456789\",\n         \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n         \"bio\": \"about me...\",\n         \"created\": \"2022-02-01T14:54:49.587Z\",\n         \"__v\": 194,\n         \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n   },\n   \"products\": [\n       {\n           \"price\": {\n               \"value\": 49.99,\n               \"currency\": \"EUR\"\n           },\n           \"_id\": \"6164048b837cb47127361aeb\",\n           \"status\": \"active\",\n           \"type\": \"module\",\n           \"title\": \"Bracelet Hynos\",\n           \"link\": \"\",\n           \"imageLink\": [\n               \"https://i.imgur.com/LaMXbW6.png\"\n           ],\n           \"availability\": \"available\",\n           \"gender\": \"unisexe\",\n           \"description\": \"Bracelet avec module hynos anti-agression.\",\n           \"color\": \"black/silver\",\n           \"created\": \"2021-10-11T09:31:55.010Z\",\n           \"__v\": 0\n       }\n   ],\n   \"price\": {\n       \"value\": 49.99,\n       \"currency\": \"EUR\"\n   },\n   \"address\": \"21 rue de Dieuze\",\n   \"_id\": \"61ed7719298d87aa7bcad70c\",\n   \"created\": \"2022-01-23T15:41:13.423Z\",\n   \"__v\": 0\n}",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/shop/shop.doc.ts",
+    "groupTitle": "Shop"
+  },
+  {
+    "type": "get",
+    "url": "contacts?_id=value",
+    "title": "5. Confirm Urgency contacts.",
+    "version": "1.0.0",
+    "name": "Confirm_Urgency_contacts",
+    "group": "Urgency_Contacts",
+    "success": {
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n{\n     'Contact CONFIRMED'\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/contacts/contacts.doc.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
     "type": "post",
     "url": "contacts",
-    "title": "Create urgency contacts.",
+    "title": "1. Create Urgency contacts.",
     "version": "1.0.0",
-    "name": "create_urgency_contacts",
+    "name": "Create_Urgency_contacts",
     "group": "Urgency_Contacts",
     "parameter": {
       "fields": {
@@ -1845,29 +1997,150 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/contacts/contacts.doc.ts",
     "groupTitle": "Urgency_Contacts"
   },
   {
-    "type": "Get",
-    "url": "user/:email",
-    "title": "Get a User by email.",
+    "type": "delete",
+    "url": "contacts?_id=value",
+    "title": "3. Delete Urgency contact.",
     "version": "1.0.0",
-    "name": "Get_a_User_by_email",
-    "group": "User",
-    "parameter": {
+    "name": "Delete_Urgency_contact",
+    "group": "Urgency_Contacts",
+    "filename": "src/contacts/contacts.doc.ts",
+    "groupTitle": "Urgency_Contacts"
+  },
+  {
+    "type": "get",
+    "url": "contacts(?keyName=value)",
+    "title": "4. Get Urgency contacts.",
+    "version": "1.0.0",
+    "name": "Get_Urgency_contacts",
+    "group": "Urgency_Contacts",
+    "success": {
       "fields": {
-        "Parameter": [
+        "Success 200": [
           {
-            "group": "Parameter",
+            "group": "Success 200",
             "type": "String",
             "optional": false,
-            "field": "email",
-            "description": "<p>email of the user.</p>"
+            "field": "id",
+            "description": "<p>id of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "ownerId",
+            "description": "<p>Id of the owner of comtact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
           }
         ]
-      }
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n [{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n},\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Toto\",\n  \"phoneNumber\": \"+33633333333\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Toto\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163db83c5863e36ba00d862\",\n  \"created\": \"2021-10-11T06:36:51.841Z\",\n  \"__v\": 0\n},\n   ...]",
+          "type": "json"
+        }
+      ]
     },
+    "filename": "src/contacts/contacts.doc.ts",
+    "groupTitle": "Urgency_Contacts"
+  },
+  {
+    "type": "patch",
+    "url": "contacts?_id=value",
+    "title": "2. Update an urgency contacts.",
+    "version": "1.0.0",
+    "name": "Update_an_urgency_contacts",
+    "group": "Urgency_Contacts",
+    "parameter": {
+      "fields": {
+        "Body": [
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "KeyName",
+            "description": "<p>Key name and value to edit.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Request-Example:",
+          "content": "{\n    \"username\": \"Titu\",\n    \"phoneNumber\": \"+33622222222\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "id",
+            "description": "<p>id of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "ownerId",
+            "description": "<p>Id of the owner of comtact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "fullname",
+            "description": "<p>fullname of the urgency contact.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "phonenumber",
+            "description": "<p>Phonenumber of the urgency contact.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": " HTTP/1.1 200 OK\n{\n  \"ownerId\": \"6163d03106ac6673f0f5c137\",\n  \"fullname\": \"Test Contact\",\n  \"phoneNumber\": \"+33611111111\",\n  \"avatar\": \"https://eu.ui-avatars.com/api/?name=Test%20Contact\",\n  \"description\": \"description ...\",\n  \"_id\": \"6163dafac5863e36ba00d860\",\n  \"created\": \"2021-10-11T06:34:34.401Z\",\n  \"__v\": 0\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/contacts/contacts.doc.ts",
+    "groupTitle": "Urgency_Contacts"
+  },
+  {
+    "type": "get",
+    "url": "user/confirm?_id=value",
+    "title": "5. Confirm User.",
+    "version": "1.0.0",
+    "name": "Confirm_User",
+    "group": "User",
+    "filename": "src/user/user.doc.ts",
+    "groupTitle": "User",
     "success": {
       "fields": {
         "Success 200": [
@@ -1877,6 +2150,13 @@
             "optional": false,
             "field": "_id",
             "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>Status of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -1897,14 +2177,7 @@
             "type": "Boolean",
             "optional": false,
             "field": "premium",
-            "description": "<p>gender of the User.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "gender",
-            "description": "<p>gender of the User.</p>"
+            "description": "<p>Premium or not (true|false).</p>"
           },
           {
             "group": "Success 200",
@@ -1912,6 +2185,13 @@
             "optional": false,
             "field": "roles",
             "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "favoris",
+            "description": "<p>favoris of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -1932,7 +2212,14 @@
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>password of the user.</p>"
+            "description": "<p>hashed password of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "hashedRefreshToken",
+            "description": "<p>hashed Refresh Token of the user.</p>"
           },
           {
             "group": "Success 200",
@@ -1950,7 +2237,7 @@
           },
           {
             "group": "Success 200",
-            "type": "Date",
+            "type": "String",
             "optional": false,
             "field": "create",
             "description": "<p>create of the user.</p>"
@@ -1967,11 +2254,255 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n     \"_id\": \"61dee544cd596a26c13b2412\",\n     \"status\": \"pending\",\n     \"firstname\": \"Hugo\",\n     \"lastname\": \"Meyer\",\n     \"premium\": true,\n     \"gender\": \"male\",\n     \"roles\": [\n         \"admin\"\n     ],\n     \"email\": \"hugo.meyer@epitech.eu\",\n     \"password\": \"$2b$10$u4FktmI26asdeophk6ZuG.lb4LnTStJOXmjhC/2wEzv8F7acmCOau\",\n     \"phoneNumber\": \"+33663657983\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=Hugo%20Meyer\",\n     \"bio\": \"about me...\",\n     \"created\": \"2022-01-12T14:27:16.526Z\",\n     \"__v\": 0\n }",
+          "content": "HTTP/1.1 200 OK\n {\n     \"_id\": \"61f949b91cb6f5c5e7785db9\",\n     \"status\": \"active\",\n     \"firstname\": \"teest\",\n     \"lastname\": \"test\",\n     \"premium\": true,\n     \"roles\": [\n         \"user\",\n         \"admin\"\n     ],\n     \"favoris\": [\n         \"616404f2837cb47127361aef\"\n     ],\n     \"email\": \"test.test@epitech.eu\",\n     \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n     \"phoneNumber\": \"+33123456789\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n     \"bio\": \"about me...\",\n     \"created\": \"2022-02-01T14:54:49.587Z\",\n     \"__v\": 194,\n     \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "Delete",
+    "url": "auth/user",
+    "title": "2.  Delete User.",
+    "version": "1.0.0",
+    "name": "Delete_User",
+    "group": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Users unique access-token.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInRWV...\"\n}",
           "type": "json"
         }
       ]
     },
+    "error": {
+      "fields": {
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (Bad Token):",
+          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/auth/auth.doc.ts",
+    "groupTitle": "User"
+  },
+  {
+    "type": "Delete",
+    "url": "user/favoris",
+    "title": "7. Delete favoris of User.",
+    "version": "1.0.0",
+    "name": "Delete_current_User_favoris",
+    "group": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Users unique access-token.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInRWV...\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Body": [
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "productID",
+            "description": "<p>productID of the product to remove in favoris.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (Bad Token):",
+          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/user/user.doc.ts",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 201": [
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>Status of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>firstname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Boolean",
+            "optional": false,
+            "field": "premium",
+            "description": "<p>Premium or not (true|false).</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "favoris",
+            "description": "<p>favoris of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "phoneNumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>hashed password of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "hashedRefreshToken",
+            "description": "<p>hashed Refresh Token of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 CREATED\n {\n     \"_id\": \"61f949b91cb6f5c5e7785db9\",\n     \"status\": \"active\",\n     \"firstname\": \"teest\",\n     \"lastname\": \"test\",\n     \"premium\": true,\n     \"roles\": [\n         \"user\",\n         \"admin\"\n     ],\n     \"favoris\": [\n         \"616404f2837cb47127361aef\"\n     ],\n     \"email\": \"test.test@epitech.eu\",\n     \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n     \"phoneNumber\": \"+33123456789\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n     \"bio\": \"about me...\",\n     \"created\": \"2022-02-01T14:54:49.587Z\",\n     \"__v\": 194,\n     \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n }",
+          "type": "json"
+        }
+      ]
+    }
+  },
+  {
+    "type": "get",
+    "url": "user(?keyName=value)",
+    "title": "3. Get Users.",
+    "version": "1.0.0",
+    "name": "Get_Users",
+    "group": "User",
+    "permission": [
+      {
+        "name": "admin"
+      }
+    ],
     "error": {
       "fields": {
         "Error 400": [
@@ -1986,22 +2517,14 @@
       },
       "examples": [
         {
-          "title": "Response (example):",
-          "content": "HTTP/1.1 400 Bad Request\n{\n     \"statusCode\": 400,\n     \"message\": \"User with this email already exist\"\n }",
+          "title": "Response (Bad Request):",
+          "content": "HTTP/1.1 400 Bad Request\n  {\n   \"statusCode\": 400,\n   \"message\": \"...\"\n  }",
           "type": "json"
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "User"
-  },
-  {
-    "type": "get",
-    "url": "user",
-    "title": "Get all Users.",
-    "version": "1.0.0",
-    "name": "Get_all_Users",
-    "group": "User",
+    "filename": "src/user/user.doc.ts",
+    "groupTitle": "User",
     "success": {
       "fields": {
         "Success 200": [
@@ -2011,6 +2534,13 @@
             "optional": false,
             "field": "_id",
             "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>Status of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -2031,14 +2561,7 @@
             "type": "Boolean",
             "optional": false,
             "field": "premium",
-            "description": "<p>If the user is premium or not.</p>"
-          },
-          {
-            "group": "Success 200",
-            "type": "String",
-            "optional": false,
-            "field": "gender",
-            "description": "<p>gender of the User.</p>"
+            "description": "<p>Premium or not (true|false).</p>"
           },
           {
             "group": "Success 200",
@@ -2046,6 +2569,13 @@
             "optional": false,
             "field": "roles",
             "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "favoris",
+            "description": "<p>favoris of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -2059,14 +2589,21 @@
             "type": "String",
             "optional": false,
             "field": "phoneNumber",
-            "description": "<p>phone number of the user.</p>"
+            "description": "<p>phonenumber of the user.</p>"
           },
           {
             "group": "Success 200",
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>password of the user.</p>"
+            "description": "<p>hashed password of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "hashedRefreshToken",
+            "description": "<p>hashed Refresh Token of the user.</p>"
           },
           {
             "group": "Success 200",
@@ -2084,10 +2621,10 @@
           },
           {
             "group": "Success 200",
-            "type": "Date",
+            "type": "String",
             "optional": false,
             "field": "create",
-            "description": "<p>create date of the user.</p>"
+            "description": "<p>create of the user.</p>"
           },
           {
             "group": "Success 200",
@@ -2101,18 +2638,16 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n [{\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"premium\": true,\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQkDuCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n },\n    {\n        \"_id\": \"61e72141d76d9d3812d8634d\",\n        \"status\": \"active\",\n        \"firstname\": \"test\",\n        \"lastname\": \"testName\",\n        \"premium\": false,\n        \"gender\": \"male\",\n        \"roles\": [\n            \"user\"\n        ],\n        \"email\": \"test.test@epitech.eu\",\n        \"password\": \"$2b$10$1xmJHKKldXI9SZbqxsVOO/walBti/eumCcQXEAWRQvXNG51KFW\",\n        \"phoneNumber\": \"+33123456789\",\n        \"avatar\": \"https://eu.ui-avatars.com/api/?name=test%20testName\",\n        \"bio\": \"about me...\",\n        \"created\": \"2022-01-18T20:21:21.757Z\",\n        \"__v\": 0\n    }, ...]",
+          "content": "HTTP/1.1 200 OK\n {\n     \"_id\": \"61f949b91cb6f5c5e7785db9\",\n     \"status\": \"active\",\n     \"firstname\": \"teest\",\n     \"lastname\": \"test\",\n     \"premium\": true,\n     \"roles\": [\n         \"user\",\n         \"admin\"\n     ],\n     \"favoris\": [\n         \"616404f2837cb47127361aef\"\n     ],\n     \"email\": \"test.test@epitech.eu\",\n     \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n     \"phoneNumber\": \"+33123456789\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n     \"bio\": \"about me...\",\n     \"created\": \"2022-02-01T14:54:49.587Z\",\n     \"__v\": 194,\n     \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n }",
           "type": "json"
         }
       ]
-    },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "User"
+    }
   },
   {
     "type": "Get",
     "url": "auth/profile",
-    "title": "Get profile of the current user.",
+    "title": "4. Get profile of User.",
     "version": "1.0.0",
     "name": "Get_current_User_Profile",
     "group": "User",
@@ -2136,6 +2671,28 @@
         }
       ]
     },
+    "error": {
+      "fields": {
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (Bad Token):",
+          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/auth/auth.doc.ts",
+    "groupTitle": "User",
     "success": {
       "fields": {
         "Success 200": [
@@ -2145,6 +2702,13 @@
             "optional": false,
             "field": "_id",
             "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>Status of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -2162,17 +2726,24 @@
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "Boolean",
             "optional": false,
-            "field": "gender",
-            "description": "<p>gender of the User.</p>"
+            "field": "premium",
+            "description": "<p>Premium or not (true|false).</p>"
           },
           {
             "group": "Success 200",
-            "type": "String",
+            "type": "String[]",
             "optional": false,
             "field": "roles",
             "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "favoris",
+            "description": "<p>favoris of the User.</p>"
           },
           {
             "group": "Success 200",
@@ -2193,7 +2764,14 @@
             "type": "String",
             "optional": false,
             "field": "password",
-            "description": "<p>password of the user.</p>"
+            "description": "<p>hashed password of the user.</p>"
+          },
+          {
+            "group": "Success 200",
+            "type": "String",
+            "optional": false,
+            "field": "hashedRefreshToken",
+            "description": "<p>hashed Refresh Token of the user.</p>"
           },
           {
             "group": "Success 200",
@@ -2228,40 +2806,18 @@
       "examples": [
         {
           "title": "Success-Response:",
-          "content": "HTTP/1.1 200 OK\n {\n      \"status\": \"pending\",\n      \"firstname\": \"Hugo\",\n      \"lastname\": \"Meyer\",\n      \"gender\": \"male\",\n      \"roles\": [\n          \"user\"\n      ],\n      \"email\": \"hugo.meyer@epitech.eu\",\n      \"password\": \"$2b$10$Mmt66zoiMlSBQu69kQgkDuaCuAIQIBH.4SB04kHJ6Dxn/XQSGb2u\",\n      \"phoneNumber\": \"+33123123123\",\n      \"avatar\": \"https://eu.ui-avatars.com/api/?name=hynos\",\n      \"bio\": \"about me...\",\n      \"_id\": \"616044f52d3a0b1a91b37442\",\n      \"created\": \"2021-10-08T13:17:41.618Z\",\n      \"__v\": 0\n }",
+          "content": "HTTP/1.1 200 OK\n {\n     \"_id\": \"61f949b91cb6f5c5e7785db9\",\n     \"status\": \"active\",\n     \"firstname\": \"teest\",\n     \"lastname\": \"test\",\n     \"premium\": true,\n     \"roles\": [\n         \"user\",\n         \"admin\"\n     ],\n     \"favoris\": [\n         \"616404f2837cb47127361aef\"\n     ],\n     \"email\": \"test.test@epitech.eu\",\n     \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n     \"phoneNumber\": \"+33123456789\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n     \"bio\": \"about me...\",\n     \"created\": \"2022-02-01T14:54:49.587Z\",\n     \"__v\": 194,\n     \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n }",
           "type": "json"
         }
       ]
-    },
-    "error": {
-      "fields": {
-        "Error 401": [
-          {
-            "group": "Error 401",
-            "type": "Object",
-            "optional": false,
-            "field": "error",
-            "description": "<p>error response.</p>"
-          }
-        ]
-      },
-      "examples": [
-        {
-          "title": "Response (Bad Token):",
-          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
-          "type": "json"
-        }
-      ]
-    },
-    "filename": "src/documentations/documentation.ts",
-    "groupTitle": "User"
+    }
   },
   {
-    "type": "Delete",
-    "url": "auth/user",
-    "title": "Remove a User by Id.",
+    "type": "Get",
+    "url": "user/favoris",
+    "title": "8. Get favoris of User.",
     "version": "1.0.0",
-    "name": "Remove_a_User_by_Id",
+    "name": "Get_current_User_favoris",
     "group": "User",
     "header": {
       "fields": {
@@ -2283,6 +2839,26 @@
         }
       ]
     },
+    "success": {
+      "fields": {
+        "Success 200": [
+          {
+            "group": "Success 200",
+            "type": "String[]",
+            "optional": false,
+            "field": "favoris",
+            "description": "<p>favoris of the User.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 200 OK\n {\n     \"favoris\": [\n            \"616404f2837cb47127361aef\"\n        ]\n }",
+          "type": "json"
+        }
+      ]
+    },
     "error": {
       "fields": {
         "Error 401": [
@@ -2303,13 +2879,13 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/user/user.doc.ts",
     "groupTitle": "User"
   },
   {
     "type": "patch",
     "url": "auth/user",
-    "title": "Update user to API.",
+    "title": "1. Update User.",
     "version": "1.0.0",
     "name": "Update_User",
     "group": "User",
@@ -2335,9 +2911,9 @@
     },
     "parameter": {
       "fields": {
-        "Parameter": [
+        "Body": [
           {
-            "group": "Parameter",
+            "group": "Body",
             "type": "String",
             "optional": false,
             "field": "KeyName",
@@ -2470,7 +3046,188 @@
         }
       ]
     },
-    "filename": "src/documentations/documentation.ts",
+    "filename": "src/auth/auth.doc.ts",
     "groupTitle": "User"
+  },
+  {
+    "type": "Post",
+    "url": "user/favoris",
+    "title": "6. Update favoris of User.",
+    "version": "1.0.0",
+    "name": "Update_current_User_favoris",
+    "group": "User",
+    "header": {
+      "fields": {
+        "Header": [
+          {
+            "group": "Header",
+            "type": "String",
+            "optional": false,
+            "field": "Authorization",
+            "description": "<p>Users unique access-token.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Header-Example:",
+          "content": "{\n  \"Authorization\": \"Bearer eyJhbGciOiJIUzI1NiIsInRWV...\"\n}",
+          "type": "json"
+        }
+      ]
+    },
+    "parameter": {
+      "fields": {
+        "Body": [
+          {
+            "group": "Body",
+            "type": "String",
+            "optional": false,
+            "field": "productID",
+            "description": "<p>productID of the product to add in favoris.</p>"
+          }
+        ]
+      }
+    },
+    "error": {
+      "fields": {
+        "Error 401": [
+          {
+            "group": "Error 401",
+            "type": "Object",
+            "optional": false,
+            "field": "error",
+            "description": "<p>error response.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Response (Bad Token):",
+          "content": "HTTP/1.1 401 Unauthorized\n  {\n   \"statusCode\": 401,\n   \"message\": \"Unauthorized\"\n  }",
+          "type": "json"
+        }
+      ]
+    },
+    "filename": "src/user/user.doc.ts",
+    "groupTitle": "User",
+    "success": {
+      "fields": {
+        "Success 201": [
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "_id",
+            "description": "<p>_id of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "Status",
+            "description": "<p>Status of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "firstname",
+            "description": "<p>firstname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "lastname",
+            "description": "<p>lastname of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Boolean",
+            "optional": false,
+            "field": "premium",
+            "description": "<p>Premium or not (true|false).</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "roles",
+            "description": "<p>roles of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String[]",
+            "optional": false,
+            "field": "favoris",
+            "description": "<p>favoris of the User.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "email",
+            "description": "<p>email of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "phoneNumber",
+            "description": "<p>phonenumber of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "password",
+            "description": "<p>hashed password of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "hashedRefreshToken",
+            "description": "<p>hashed Refresh Token of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "avatar",
+            "description": "<p>avatar of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "bio",
+            "description": "<p>bio of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "String",
+            "optional": false,
+            "field": "create",
+            "description": "<p>create of the user.</p>"
+          },
+          {
+            "group": "Success 201",
+            "type": "Number",
+            "optional": false,
+            "field": "__v",
+            "description": "<p>version of the user informations.</p>"
+          }
+        ]
+      },
+      "examples": [
+        {
+          "title": "Success-Response:",
+          "content": "HTTP/1.1 201 CREATED\n {\n     \"_id\": \"61f949b91cb6f5c5e7785db9\",\n     \"status\": \"active\",\n     \"firstname\": \"teest\",\n     \"lastname\": \"test\",\n     \"premium\": true,\n     \"roles\": [\n         \"user\",\n         \"admin\"\n     ],\n     \"favoris\": [\n         \"616404f2837cb47127361aef\"\n     ],\n     \"email\": \"test.test@epitech.eu\",\n     \"password\": \"$2b$10$blMmc7T2tnAmXtvh1nJHqu1tm0CeWD6NVs9zr7Ia2fYdwQaKGC3Fe\",\n     \"phoneNumber\": \"+33123456789\",\n     \"avatar\": \"https://eu.ui-avatars.com/api/?name=teest%20test\",\n     \"bio\": \"about me...\",\n     \"created\": \"2022-02-01T14:54:49.587Z\",\n     \"__v\": 194,\n     \"hashedRefreshToken\": \"$2b$10$8n2ADQ9wgn0fkq5uUBeR..17Cl4wHPXB.sJRCmwSuM3MadAnfoCYS\"\n }",
+          "type": "json"
+        }
+      ]
+    }
   }
 ]
